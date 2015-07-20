@@ -41,3 +41,9 @@ var myApp = angular.module('myApp', ['ngRoute'])
 
   //$scope.url = "http://conference.unavsa.org/wp-content/uploads/2015/06/SEA-pic.jpg"
 })
+
+jQuery(document).ready(function(){
+    $( "#loader" ).delay(800).fadeOut(400, function(){
+        $( "#your-page" ).fadeIn(400);
+    });  
+});
