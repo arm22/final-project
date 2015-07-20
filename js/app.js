@@ -1,3 +1,10 @@
+var data
+
+var baseURL = "http://api.openweathermap.org/data/2.5/forecast/city?id=5809844&mode=json&units=imperial"
+
+
+var apiKey = "&APPID=0c02cd3e6c47bafe3bc17f4b7c38ef6c"
+
 var myApp = angular.module('myApp', ['ngRoute'])
 
 //Config route provider
@@ -22,10 +29,19 @@ var myApp = angular.module('myApp', ['ngRoute'])
 })
 
 // Landing page controller
-.controller('HomeController', function($scope){
+.controller('HomeController', function($scope, $http){
   //holy shit scopes can be passed into controllers
-
-  //$scope.number = 20  
+  $scope.getWeather = function() {
+      $http.get(baseURL + apiKey).success(function(response){
+        data = $scope.weather = response.list;
+        console.log(data);
+        $scope.day1 = data[3];
+        $scope.day2 = data[11];
+        $scope.day3 = data[19];
+        $scope.day4 = data[27];
+        $scope.day5 = data[35];
+      })
+    }
 })
 
 // About page controller
@@ -41,3 +57,18 @@ var myApp = angular.module('myApp', ['ngRoute'])
 
   //$scope.url = "http://conference.unavsa.org/wp-content/uploads/2015/06/SEA-pic.jpg"
 })
+
+myApp.directive('tooltip', function(){
+    return {
+        restrict: 'A',
+        link: function(scope, element, attrs){
+            $(element).hover(function(){
+                // on mouseenter
+                $(element).tooltip('show');
+            }, function(){
+                // on mouseleave
+                $(element).tooltip('hide');
+            });
+        }
+    };
+});

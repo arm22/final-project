@@ -1,1 +1,15 @@
-<div>This is the home page. It should contain the weather as the focal point and other 'widgets' as the side content</div>
+<div class="row">
+	<div class="col-md-2">
+	</div>
+	<div class="col-md-8">
+		<div>This is the home page. It should contain the weather as the focal point and other 'widgets' as the side content</div>
+		<button  class="btn btn-primary" ng-click="getWeather()" type="submit">Submit</button>
+		<div id="weather-box" data-toggle="tooltip" data-placement="top" title="{{day1.weather[0].main}}" tooltip>
+			<i class="wi wi-day-sunny wi-4"><h4>{{day1.main.temp_max}}</h4><text> | </text><h4>{{day1.main.temp_min}}</h4></i>
+
+		</div>
+		
+	</div>
+	<div class="col-md-2">
+	</div>
+</div>
