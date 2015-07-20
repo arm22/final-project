@@ -1,0 +1,12 @@
+body {
+	background-color: #34495E;
+	color: #ECF0F1;
+}
+
+i {
+	font-size: 40px;
+}
+
+#weather-box {
+	display: inline-block;
+}
