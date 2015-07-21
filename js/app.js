@@ -25,6 +25,10 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate'])
     templateUrl: 'templates/reminders.html',
     controller: 'RemindersController',
   })
+   .when('/location/', {
+    templateUrl: 'templates/location.html',
+    controller: 'LocationController',
+  })
 })
 
 // Landing page controller
@@ -69,6 +73,19 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate'])
 // Content controller
 .controller('RemindersController', function($scope) {
     
+})
+
+.controller('LocationController',function($scope, $http){
+    $scope.search=function() {
+        $http.get( "http://api.zippopotam.us/us/"+$scope.location).
+        success(function(data){
+            $scope.item=data;
+        })
+        .error(function() {
+            alert('No!')
+        })
+    }
+
 })
 
 //Tooltip functionality
