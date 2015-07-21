@@ -1,0 +1,66 @@
+<html>
+	<head>
+		<link rel='stylesheet' href='fullcalendar.css' />
+		<script src='lib/jquery.min.js'></script>
+		<script src='lib/moment.min.js'></script>
+		<script src='fullcalendar.js'></script>
+		<script>
+		
+		$(document).ready(function() {
+
+    	// page is now ready, initialize the calendar...
+
+    	$('#calendar').fullCalendar({
+        // put your options and callbacks here
+    	})
+
+		});
+		</script>
+	</head>
+	<body>
+        <p> Add Event: <input id="thing" type = 'text'></input></p>
+        <p> Start Date (YYYY-MM-DD):<input id = "date" type = 'text' placeholder="e.g 2015-07-30"></input></p>
+        <input type='submit' onclick = add()></input>
+		<div id='calendar'></div>
+
+		<script>
+			var eve = {
+    events: [
+        {
+            title : 'ahaha',
+            start : '2015-07-13'
+        },
+        {
+            title  : 'event1',
+            start  : '2015-07-30'
+
+        },
+        {
+            title  : 'event2',
+            start  : '2015-07-07',
+        
+        },
+        {
+            title  : 'event3',
+            start  : '2015-07-09T12:30:00',
+            allDay : false // will make the time show
+        }
+    ]
+}
+    var add = function() {
+        var nEve = $('#thing').val();
+        var d = $('#date').val();
+        var info = {
+            title : nEve,
+            start : d
+        }
+        $('#calendar').fullCalendar( 'renderEvent', info,true);
+        eve.events.push(info);
+        
+    }
+    
+			$('#calendar').fullCalendar(eve);
+		</script>
+
+	</body>
+</html>
