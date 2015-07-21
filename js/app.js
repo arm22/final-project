@@ -1,4 +1,4 @@
-var data;
+var days = [];
 
 var baseURL = "http://api.openweathermap.org/data/2.5/forecast/city?id=5809844&mode=json&units=imperial";
 
@@ -31,23 +31,30 @@ var myApp = angular.module('myApp', ['ngRoute'])
 .controller('HomeController', function($scope, $http){
 
   $scope.getWeather = function() {
-      $http.get(baseURL + apiKey).success(function(response) {
-        data = $scope.weather = response.list;
-        console.log(data);
-        //First day at 12
-        $scope.day1 = data[3];
-        //Second day at 12
-        $scope.day2 = data[11];
-        //Third day at 12
-        $scope.day3 = data[19];
-        //Fourth day at 12
-        $scope.day4 = data[27];
-        //Fifth at 12
-        $scope.day5 = data[35];
+        days = [];
+        $http.get(baseURL + apiKey).success(function(response) {
+            var data = response.list;
+            for (i = 2; i <= 35; i = i + 8) {
+                if (data[i].weather[0].main == "Clear") {
+                    data[i].weather[0].icon = "wi wi-day-sunny"
+                } else if (data[i].weather[0].main == "Rain") {
+                    data[i].weather[0].icon = "wi wi-sprinkle"
+                } else if (data[i].weather[0].main == "Clouds") {
+                    data[i].weather[0].icon = "wi wi-cloudy"
+                } else {
+                    data[i].weather[0].icon = "wi wi-day-cloudy"
+                }
+                days.push(data[i]);
+            }
+        console.log(days);
+        $scope.days = days;
+
       })
     }
     angular.element(document).ready(function () {
-        $scope.getWeather();
+        if (days !== []) {
+            $scope.getWeather();
+        }
     });
 })
 

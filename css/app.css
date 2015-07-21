@@ -11,7 +11,7 @@ i {
 	font-size: 70px;
 }
 
-#weather-box {
+#weatherbox {
 	display: inline-block;
 	margin: auto;
 	padding-left: 5%;
@@ -28,4 +28,8 @@ h4 {
 
 clock {
 	font-size: 100px;
+}
+
+.header {
+	text-align: left;
 }
