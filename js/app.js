@@ -4,7 +4,7 @@ var baseURL = "http://api.openweathermap.org/data/2.5/forecast/city?id=5809844&m
 
 var apiKey = "&APPID=0c02cd3e6c47bafe3bc17f4b7c38ef6c";
 
-var myApp = angular.module('myApp', ['ngRoute'])
+var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate'])
 
 //Config route provider
 //Hosts home page with
@@ -29,6 +29,7 @@ var myApp = angular.module('myApp', ['ngRoute'])
 
 // Landing page controller
 .controller('HomeController', function($scope, $http){
+
 
   $scope.getWeather = function() {
         days = [];
@@ -56,6 +57,7 @@ var myApp = angular.module('myApp', ['ngRoute'])
             $scope.getWeather();
         }
     });
+
 })
 
 // About page controller
@@ -105,37 +107,6 @@ myApp.directive('clock', ['dateFilter', '$timeout', function(dateFilter, $timeou
     };
 }]);
 
-//Calender functionanility
-.directive('tien-clndr', function() {
-    return {
-        element.html(<tien-clndr class="clndr" tien-clndr-object="clndr" tien-clndr-events="events">
-  <div class="clndr-controls">
-    <div class="clndr-previous-button" ng-click="clndr.back()">
-      &lsaquo;
-    </div>
-    <div class="month">
-      {{month}}
-    </div>
-    <div class="clndr-next-button" ng-click="clndr.forward()">
-      &rsaquo;
-    </div>
-  </div>
-  <div class="clndr-grid">
-    <div class="days-of-the-week">
-      <div class="header-day" ng-repeat="day in daysOfTheWeek track by $index">
-        {{day}}
-      </div>
-    </div>
-    <div class="days">
-      <div class="{{day.classes}}" ng-repeat="day in days">
-        <div class="event-indicator" ng-show="day.events.length" ng-click="showEvents(day.events)">{{day.events.length}}</div>
-        {{day.day}}
-      </div>
-    </div>
-  </div>
-</tien-clndr>)
-    } 
-}
 
 //Filter string as int
 myApp.filter('ceil', function() {

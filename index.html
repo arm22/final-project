@@ -2,12 +2,12 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width">
-    <script src="/bower_components/jquery/src/jquery.js"></script>
+    <script src="/bower_components/jquery/dist/jquery.min.js"></script>
     <link href="/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="/bower_components/angular/angular.js"></script>
     <script src="/bower_components/angular-route/angular-route.js"></script>
-    <script src="/bower_components/angular-clndr/angular-clndr.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
     <link rel="/bower_components/fontawesome/css/font-awesome.min.css">
 
     <!-- Add angular route library here -->
@@ -21,6 +21,7 @@
 <body>
 
     <div class="container-fluid">
+        <div ng-app="myApp">
         <div class="header row">
             <div class="col-md-4">
                 <h1>Welcome Home</h1>
@@ -46,13 +47,12 @@
                 </div>
             </div>
         </div>
-        <div ng-app="myApp">
             <div ng-view></div>
-        </div>
         <div class="footer row">
             <div class="col-md-12">
                 <h2>Sources and stuff</h2>
             </div>
+        </div>
         </div>
     </div>
 
