@@ -17,9 +17,9 @@ var myApp = angular.module('myApp', ['ngRoute'])
       templateUrl: 'templates/home.html',
       controller: 'HomeController',
     })
-   .when('/calender/', {
+   .when('/calendar/', {
     templateUrl: 'templates/calender.html',
-    controller: 'CalanderController',
+    controller: 'CalendarController',
   })
    .when('/reminders/', {
     templateUrl: 'templates/reminders.html',
@@ -59,17 +59,14 @@ var myApp = angular.module('myApp', ['ngRoute'])
 })
 
 // About page controller
-.controller('CalenderController', function($scope) {
+.controller('CalendarController', function($scope) {
 
 
-  //$scope.about = "Here's some information about this page."
 })
 
 // Content controller
 .controller('RemindersController', function($scope) {
-
-
-  //$scope.url = "http://conference.unavsa.org/wp-content/uploads/2015/06/SEA-pic.jpg"
+    
 })
 
 //Tooltip functionality
@@ -88,6 +85,7 @@ myApp.directive('tooltip', function() {
     };
 });
 
+//Clock functionality
 myApp.directive('clock', ['dateFilter', '$timeout', function(dateFilter, $timeout){
     return {
         restrict: 'E',
@@ -106,6 +104,38 @@ myApp.directive('clock', ['dateFilter', '$timeout', function(dateFilter, $timeou
         }
     };
 }]);
+
+//Calender functionanility
+.directive('tien-clndr', function() {
+    return {
+        element.html(<tien-clndr class="clndr" tien-clndr-object="clndr" tien-clndr-events="events">
+  <div class="clndr-controls">
+    <div class="clndr-previous-button" ng-click="clndr.back()">
+      &lsaquo;
+    </div>
+    <div class="month">
+      {{month}}
+    </div>
+    <div class="clndr-next-button" ng-click="clndr.forward()">
+      &rsaquo;
+    </div>
+  </div>
+  <div class="clndr-grid">
+    <div class="days-of-the-week">
+      <div class="header-day" ng-repeat="day in daysOfTheWeek track by $index">
+        {{day}}
+      </div>
+    </div>
+    <div class="days">
+      <div class="{{day.classes}}" ng-repeat="day in days">
+        <div class="event-indicator" ng-show="day.events.length" ng-click="showEvents(day.events)">{{day.events.length}}</div>
+        {{day.day}}
+      </div>
+    </div>
+  </div>
+</tien-clndr>)
+    } 
+}
 
 //Filter string as int
 myApp.filter('ceil', function() {
