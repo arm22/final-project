@@ -1,16 +1,21 @@
+@import url(http://fonts.googleapis.com/css?family=Josefin+Sans:400,700);
+
 body {
 	background-color: #34495E;
 	color: #ECF0F1;
 	text-align: center;
+	font-family: 'Josefin Sans';
 }
 
 i {
-	font-size: 40px;
+	font-size: 70px;
 }
 
 #weather-box {
 	display: inline-block;
 	margin: auto;
+	padding-left: 5%;
+	padding-right: 5%;
 }
 
 h4 {
@@ -19,4 +24,8 @@ h4 {
 
 #degrees_min {
 	opacity: .5;
+}
+
+clock {
+	font-size: 100px;
 }

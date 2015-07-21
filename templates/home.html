@@ -1,10 +1,19 @@
 <div class="row">
-	<div class="col-md-4">
+	<div class="col-md-2">
 	</div>
-	<div class="col-md-4">
+	<div class="col-md-8">
+		 <clock format="hh:mm:ss"></clock>
+	</div>
+	<div class="col-md-2">
+	</div>
+</div>
+<div class="row">
+	<div class="col-md-2">
+	</div>
+	<div class="col-md-8">
 		<div ng-show="day1.main != null" id="weather-box" data-toggle="tooltip" data-placement="top" title="{{day1.weather[0].main}}" tooltip>
 			<p>
-				<i class="wi wi-day-sunny wi-4"></i>
+				<i ng-class="day1.weather[0].main == 'Clouds' ? 'wi wi-cloud' : 'wi wi-day-sunny'"></i>
 				<h4 id="degrees_max">{{day1.main.temp_max | ceil}}&#176; | </h4> <h4 id="degrees_min">{{day1.main.temp_min | ceil}}&#176;</h4>
 			</p>
 		</div>
@@ -33,6 +42,6 @@
 			</p>
 		</div>
 	</div>
-	<div class="col-md-4">
+	<div class="col-md-2">
 	</div>
 </div>
