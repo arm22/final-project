@@ -86,3 +86,10 @@ clock {
 	padding-top: 10px;
 	padding-bottom: 10px;
 }
+
+ul
+{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}

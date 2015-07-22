@@ -5,11 +5,11 @@ var todos = todos = [
     {text: 'Submit group evals', done:false}
   ];
 
-var city;
+var city = "London, ENG";
 
-var lat;
+var lat = 51.5072;
 
-var lon;
+var lon = 0.1275;
 
 var baseURL = "http://api.openweathermap.org/data/2.5/forecast?";
 
@@ -193,6 +193,7 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate', 'ui.calendar'])
                 }
                 days.push(data[i]);
             }
+            console.log(days);
         $scope.days = days;
       })
     }
@@ -233,7 +234,6 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate', 'ui.calendar'])
         $http.get( "http://api.zippopotam.us/us/"+$scope.zip).
         success(function(response){
             $scope.data=response;
-            name = $scope.name;
             lat = $scope.data.places[0].latitude;
             lon = $scope.data.places[0].longitude;
             city = $scope.data.places[0]['place name'] + ', ' + $scope.data.places[0]['state abbreviation'];
