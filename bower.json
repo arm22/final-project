@@ -1,0 +1,30 @@
+{
+  "name": "final-project",
+  "version": "(0.1.0)",
+  "homepage": "(http://www.austinrmeyers.me/info343/final-project/#/)",
+  "authors": [
+    "Austin Meyers <meyersaustin22@gmail.com>"
+  ],
+  "description": "Angular App Final",
+  "main": "index.html",
+  "moduleType": [
+    "es6",
+    "node"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-animate": "~1.4.3",
+    "angular-route": "~1.4.3",
+    "angular-ui-calendar": "~1.0.1",
+    "fullcalendar": "~2.3.2",
+    "bootstrap": "~3.3.5",
+    "fontawesome": "~4.3.0"
+  }
+}
