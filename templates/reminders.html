@@ -13,10 +13,10 @@
                 
             </li>
         </ul>
-        <form>
-            <input name="task" class="input-group todo" placeholder="I need to..." type="text" ng-model="formTodoText" ng-model-instant />
+        <div class="input-group">
+            <input name="task" class="todo" placeholder="I need to..." type="text" ng-model="formTodoText" ng-model-instant />
             <button class="btn btn-default add" ng-click="addTodo()"><i class="fa fa-plus nav-ico"></i></button>
-        </form>
+        </div>
             <button class="btn btn-default submit" ng-click="clearCompleted()"><i class="fa fa-eraser nav-ico"></i> Clear</button>
     </div>
     <div class="col-md-4">
