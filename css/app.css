@@ -8,7 +8,7 @@ body {
 }
 
 .fa {
-	color: white;
+	color: #34495E;
 }
 
 i {
@@ -22,16 +22,17 @@ i {
 	padding-right: 3%;
 }
 
-/* The starting CSS styles for the enter animation */
 .ng-enter {
-  transition:2s linear all;
-  opacity:0;
+  -webkit-transition: 1s;
+  transition: 1s;
+  
+  margin-left: 100%;
 }
 
-/* The finishing CSS styles for the enter animation */
 .ng-enter-active {
-  opacity:1;
+  margin-left: 0;
 }
+
 h4 {
 	display: inline;
 }
@@ -46,4 +47,5 @@ clock {
 
 .header {
 	text-align: left;
+	margin-bottom: 10px;
 }
