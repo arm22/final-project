@@ -193,7 +193,6 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate', 'ui.calendar'])
                 }
                 days.push(data[i]);
             }
-        console.log(days);
         $scope.days = days;
       })
     }
