@@ -7,6 +7,17 @@ body {
 	font-family: 'Josefin Sans', sans-serif;
 }
 
+.git {
+    display:inline-block;
+    font-size: 40px;
+    line-height: 50px;
+    color:white;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    vertical-align: bottom;
+}
+
 .fa {
 	color: #ECF0F1;
 }
@@ -92,4 +103,20 @@ ul
     list-style-type: none;
     padding: 0;
     margin: 0;
+}
+
+.done-true {
+	text-decoration: line-through;
+}
+
+.check-box {
+	opacity: 0;
+}
+
+.add, .todo {
+	display: inline-block;
+}
+
+.submit {
+	padding: 5px;
 }

@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-12">
-    <h1>You've got <span class="emphasis">{{getTotalTodos()}}</span> things to do</h1>
+    <h1>You've got <span class="emphasis">{{getTotalTodos()}}</span> things to do!</h1>
     </div>
 </div>
 <div class="row">
@@ -9,16 +9,15 @@
     <div class="col-md-4">
         <ul>
             <li ng-repeat="todo in todos">
-                <label><input type="checkbox" ng-model="todo.done"/><span class="done-{{todo.done}}">{{todo.text}}</span></label>
+                <label><input type="checkbox" ng-model="todo.done" class="check-box" /><span class="done-{{todo.done}}">{{todo.text}}</span></label>
                 
             </li>
         </ul>
         <form>
-            <input class="input-group" placeholder="I need to..." type="text" ng-model="formTodoText" ng-model-instant />
-            <button class="btn btn-default" ng-click="addTodo()"><i class="fa fa-plus nav-ico"></i></button>
+            <input name="task" class="input-group todo" placeholder="I need to..." type="text" ng-model="formTodoText" ng-model-instant />
+            <button class="btn btn-default add" ng-click="addTodo()"><i class="fa fa-plus nav-ico"></i></button>
         </form>
-
-        <button class="btn btn-primary" ng-click="clearCompleted()">Clear completed</button>
+            <button class="btn btn-default submit" ng-click="clearCompleted()"><i class="fa fa-eraser nav-ico"></i> Clear</button>
     </div>
     <div class="col-md-4">
     </div>
