@@ -4,7 +4,7 @@ body {
 	background-color: #34495E;
 	color: #ECF0F1;
 	text-align: center;
-	font-family: 'Josefin Sans';
+	font-family: 'Josefin Sans', sans-serif;
 }
 
 .fa {
@@ -55,10 +55,24 @@ clock {
 }
 
 .sidebar-nav {
-	text-align: right;
+	text-align: left;
 }
 
 .menu-toggle {
 	text-align: center;
-	
+}
+
+.input-group {
+	text-align: center;
+	padding-left: auto;
+	padding-right: auto;
+}
+
+.input-group {
+    margin: 0 auto;
+    float: none;
+}
+
+.footer {
+	text-align: right;
 }
