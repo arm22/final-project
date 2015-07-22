@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1"/>
+        <title>Tasks Sign Up</title>
+
+        <link rel="stylesheet" href="css/styles.css"/>
+    </head>
+    <body class="container-fluid">
+        <h1>Sign Up</h1>
+
+        <p class="alert alert-danger error-message"></p>
+
+        <form class="form-signup">
+            <div class="form-group">
+                <label for="inputID">ID</label>
+                <input type="text" class="form-control" id="inputID" placeholder="your ID" required/>
+            </div>
+            <div class="form-group">
+                <label for="inputZipcode">Zipcode</label>
+                <input type="text" class="form-control" id="inputZipcode" placeholder="your zip-code" required/>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">
+                    Sign Up
+                    <span class="fa fa-refresh fa-spin spinner"></span>
+                </button>
+            </div>
+        </form>
+
+        <p>Already have an account? <a href="signin.html">Sign In</a> using your existing account.</p>
+
+        <script src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script src="https://www.parsecdn.com/js/parse-1.4.2.min.js"></script>
+        <script src="js/common.js"></script>
+        <script src="js/signup.js"></script>
+    </body>
+</html>
