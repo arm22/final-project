@@ -8,9 +8,7 @@
 	</div>
 </div>
 <div class="row">
-	<div class="col-md-2">
-	</div>
-	<div class="col-md-8">
+	<div class="col-md-12">
 		<div ng-repeat="day in days" ng-show="days != null" id="weatherbox" data-toggle="tooltip" data-placement="bottom" title="{{day.weather[0].main}}" tooltip>
 			<p>
 				<i ng-class="day.weather[0].icon"></i>
@@ -18,9 +16,14 @@
 				<h4 id="degrees_max">{{day.main.temp_max | ceil}}&#176; | </h4> <h4 id="degrees_min">{{day.main.temp_min | ceil}}&#176;</h4>
 			</p>
 		</div>
-		<h3>{{city}}</h3>
 	</div>
-	<div class="col-md-2">
+</div>
+<div class="row">
+	<div class="col-md-4">
 	</div>
-
+	<div class="col-md-4">
+		 <h2>{{city}}</h2>
+	</div>
+	<div class="col-md-4">
+	</div>
 </div>
