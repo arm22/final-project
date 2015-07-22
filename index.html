@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <!-- jquery, moment, and angular have to get included before fullcalendar -->
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
     <script type="text/javascript" src="bower_components/moment/min/moment.min.js"></script>
@@ -13,7 +13,7 @@
     <script type="text/javascript" src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="bower_components/angular-route/angular-route.js"></script>
     <script type="text/javascript" src="bower_components/angular-animate/angular-animate.js"></script>
-
+    <script type="text/javascript" src="bower_components/underscore/underscore.js"></script>
     <!-- Add angular route library here -->
     <link rel="shortcut icon" href="imgs/home-icon.png">
     <script type="text/javascript" src="js/app.js"></script>
@@ -32,16 +32,16 @@
         <div id="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li>
-                    <a href="#/home">Home</a>
+                    <a href="#/home">Home <i class="fa fa-home"></i></a>
                 </li>
                 <li>
-                    <a href="#/calendar">Calendar</a>
+                    <a href="#/calendar">Calendar <i class="fa fa-calendar"></i></a>
                 </li>
                 <li>
-                    <a href="#/reminders">Reminders</a>
+                    <a href="#/reminders">Reminders <i class="fa fa-list-alt"></i></a>
                 </li>
                 <li>
-                    <a href="#/">Settings</a>
+                    <a href="#/">Settings <i class="fa fa-gear"></i></a>
                 </li>
             </ul>
         </div>
@@ -54,7 +54,7 @@
                     <div class="header row">
                         <div class="col-md-8">
                             <h1>Welcome Home</h1>
-                             <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><i class="fa fa-navicon"></i></a>
+                             <a href="#menu-toggle" class="btn btn-default" id="menu-toggle"><i class="fa fa-navicon nav-ico"></i></a>
                         </div>
                         <div class="col-md-4">
                         </div>

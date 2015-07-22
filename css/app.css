@@ -8,6 +8,10 @@ body {
 }
 
 .fa {
+	color: #ECF0F1;
+}
+
+.nav-ico {
 	color: #34495E;
 }
 
@@ -48,4 +52,8 @@ clock {
 .header {
 	text-align: left;
 	margin-bottom: 10px;
+}
+
+.sidebar-nav {
+	text-align: right;
 }
