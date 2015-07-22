@@ -1,10 +1,16 @@
 var days = [];
 
-var baseURL = "http://api.openweathermap.org/data/2.5/forecast/city?id=5809844&mode=json&units=imperial";
+var city;
 
-var apiKey = "&APPID=0c02cd3e6c47bafe3bc17f4b7c38ef6c";
+var lat;
 
-var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate'])
+var lon;
+
+var baseURL = "http://api.openweathermap.org/data/2.5/forecast?";
+
+var apiKey = "&mode=json&units=imperial&APPID=0c02cd3e6c47bafe3bc17f4b7c38ef6c";
+
+var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate', 'ui.calendar'])
 
 //Config route provider
 //Hosts home page with
@@ -13,7 +19,11 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate'])
 //
 .config(function($routeProvider) {
   $routeProvider
-    .when('/', {
+  .when('/', {
+      templateUrl: 'templates/settings.html',
+      controller: 'SettingsController',
+    })
+    .when('/home/', {
       templateUrl: 'templates/home.html',
       controller: 'HomeController',
     })
@@ -25,10 +35,6 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate'])
     templateUrl: 'templates/reminders.html',
     controller: 'RemindersController',
   })
-   .when('/location/', {
-    templateUrl: 'templates/location.html',
-    controller: 'LocationController',
-  })
 })
 
 // Landing page controller
@@ -36,10 +42,13 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate'])
 
 
   $scope.getWeather = function() {
+        $scope.city = city;
+        $scope.lat = lat;
+        $scope.lon = lon
         days = [];
-        $http.get(baseURL + apiKey).success(function(response) {
+        $http.get(baseURL + 'lat=' + lat + '&lon=' + lon + apiKey).success(function(response) {
             var data = response.list;
-            for (i = 2; i <= 35; i = i + 8) {
+            for (i = 3; i <= 35; i = i + 8) {
                 if (data[i].weather[0].main == "Clear") {
                     data[i].weather[0].icon = "wi wi-day-sunny"
                 } else if (data[i].weather[0].main == "Rain") {
@@ -53,7 +62,6 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate'])
             }
         console.log(days);
         $scope.days = days;
-
       })
     }
     angular.element(document).ready(function () {
@@ -64,22 +72,22 @@ var myApp = angular.module('myApp', ['ngRoute', 'ngAnimate'])
 
 })
 
-// About page controller
-.controller('CalendarController', function($scope) {
-
-
-})
 
 // Content controller
 .controller('RemindersController', function($scope) {
     
 })
 
-.controller('LocationController',function($scope, $http){
+.controller('SettingsController',function($scope, $http, $location){
     $scope.search=function() {
-        $http.get( "http://api.zippopotam.us/us/"+$scope.location).
-        success(function(data){
-            $scope.item=data;
+        $http.get( "http://api.zippopotam.us/us/"+$scope.zip).
+        success(function(response){
+            $scope.data=response;
+            name = $scope.name;
+            lat = $scope.data.places[0].latitude;
+            lon = $scope.data.places[0].longitude;
+            city = $scope.data.places[0]['place name'] + ', ' + $scope.data.places[0]['state abbreviation'];
+            $location.path("/home");
         })
         .error(function() {
             alert('No!')
@@ -131,3 +139,9 @@ myApp.filter('ceil', function() {
     return Math.ceil(input);
   };
 });
+
+myApp.filter('format', function() {
+  return function(input, format) {
+    return moment(new Date(input)).format(format);
+  };
+})

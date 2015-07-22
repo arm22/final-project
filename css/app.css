@@ -7,6 +7,10 @@ body {
 	font-family: 'Josefin Sans';
 }
 
+.fa {
+	color: white;
+}
+
 i {
 	font-size: 70px;
 }
@@ -14,21 +18,20 @@ i {
 #weatherbox {
 	display: inline-block;
 	margin: auto;
-	padding-left: 5%;
-	padding-right: 5%;
+	padding-left: 3%;
+	padding-right: 3%;
 }
 
+/* The starting CSS styles for the enter animation */
 .ng-enter {
-  -webkit-transition: 1s;
-  transition: 1s;
-  
-  margin-left: 50%;
+  transition:2s linear all;
+  opacity:0;
 }
 
+/* The finishing CSS styles for the enter animation */
 .ng-enter-active {
-  margin-left: 0;
+  opacity:1;
 }
-
 h4 {
 	display: inline;
 }
@@ -38,7 +41,7 @@ h4 {
 }
 
 clock {
-	font-size: 100px;
+	font-size: 50px;
 }
 
 .header {
